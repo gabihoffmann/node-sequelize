@@ -32,3 +32,7 @@ module.exports = {
     return queryInterface.dropTable("users");
   },
 };
+/**
+ * Executando uma migrate
+ * yarn sequelize migrate:create —name=nome_migrate_relacionada_ação
+ */

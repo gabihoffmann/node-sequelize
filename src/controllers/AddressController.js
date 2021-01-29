@@ -24,7 +24,7 @@ module.exports = {
       include: { association: "addresses" },
     });
 
-    return res.json(user);
+    return res.json(user.addresses);
 
     // if (!user) {
     //   return res.status(404).json({ error: "User not found" });

@@ -1,4 +1,5 @@
 const { database, DataTypes } = require("../database/index");
+const Address = require("./Address");
 
 const User = database.define(
   "User",
@@ -12,5 +13,11 @@ const User = database.define(
   },
   {}
 );
+
+User.hasMany(Address, { foreignKey: "user_id", as: "addresses" });
+
+// User.associate = (models) => {
+//   User.hasMany(models.Address, { foreignKey: "user_id", as: "addresses" });
+// };
 
 module.exports = User;

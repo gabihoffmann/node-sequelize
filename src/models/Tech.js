@@ -11,10 +11,11 @@ const Tech = database.define(
 );
 
 Tech.associate = (models) => {
+  //"Tech pertence a muitos User"
   Tech.belongsToMany(models.User, {
-    foreignKey: "tech_id",
-    through: "user_techs",
-    as: "users",
+    foreignKey: "tech_id", // nome da chave em 'user_techs' que armazena a tech
+    through: "user_techs", // através da tabela pivô 'user_techs'
+    as: "users", // chama esse relacionamento como users (os usuários que tem essa tecnologia)
   });
 };
 

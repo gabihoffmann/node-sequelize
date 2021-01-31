@@ -12,14 +12,17 @@ module.exports = {
       return res.status(404).json({ error: "User not found" });
     }
 
-    //resposta do findOrCreate array com a model e um boolean
+    //Criando uma tecnologia associada a um usuário
+    //resposta do 'findOrCreate' array com a model e um boolean que informa se foi criado agora ou não
     const [tech] = await Tech.findOrCreate({
+      // procurando uma tech com o name
       where: { name },
     });
 
-    console.log(tech);
+    //Em um relacionamento (N:M) belongsToMany o Sequelize cria vários métodos auxiliares
+    await user.addTech(tech);
 
-    res.send(tech);
+    return res.json(tech);
   },
 
   async list(req, res) {

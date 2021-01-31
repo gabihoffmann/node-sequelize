@@ -1,9 +1,8 @@
 const { database, DataTypes } = require("../database/index");
 const Address = require("./Address");
-const Tech = require("./Tech");
 
 const User = database.define(
-  "User",
+  "users",
   {
     name: {
       type: DataTypes.STRING,
@@ -12,7 +11,7 @@ const User = database.define(
       type: DataTypes.STRING,
     },
   },
-  {}
+  { freezeTableName: true }
 );
 
 User.hasMany(Address, { foreignKey: "user_id", as: "addresses" });
@@ -24,9 +23,5 @@ User.associate = (models) => {
     as: "techs",
   });
 };
-
-// User.associate = (models) => {
-//   User.hasMany(models.Address, { foreignKey: "user_id", as: "addresses" });
-// };
 
 module.exports = User;

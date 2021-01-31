@@ -1,7 +1,7 @@
 const { database, DataTypes } = require("../database/index");
 
 const Address = database.define(
-  "Address",
+  "addresses",
   {
     zipcode: {
       type: DataTypes.STRING,
@@ -20,7 +20,7 @@ const Address = database.define(
       },
     },
   },
-  {}
+  { freezeTableName: true }
 );
 
 Address.associate = (models) => {

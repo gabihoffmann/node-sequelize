@@ -1,7 +1,7 @@
 const { database, DataTypes } = require("../database/index");
 
 const Tech = database.define(
-  "Techs",
+  "techs",
   {
     name: {
       type: DataTypes.STRING,

@@ -1,5 +1,4 @@
 const { database, DataTypes } = require("../database/index");
-const User = require("./User");
 
 const Tech = database.define(
   "Techs",
@@ -8,7 +7,7 @@ const Tech = database.define(
       type: DataTypes.STRING,
     },
   },
-  {}
+  { freezeTableName: true }
 );
 
 Tech.associate = (models) => {

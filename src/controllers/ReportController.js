@@ -17,7 +17,7 @@ module.exports = {
           association: "addresses",
           where: { street: "Rua Guilherme Gembala" },
         },
-        //desse usuários buscas os que tem tecnologia que começa com React
+        //desse usuários buscas as tecnologias que começam com React
         {
           association: "techs",
           where: {

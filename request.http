@@ -1,1 +1,57 @@
+# User Routes
+# retorna lista de usuários armazenados no banco
 GET http://localhost:3333/users HTTP/1.1
+
+###
+# adiciona um usuário passando nome e email
+POST http://localhost:3333/users HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Gabi Hoffmann", 
+	"email": "gabi@hoffmann.com.br"
+}
+
+###
+# User Addres Routes
+# retorna a lista de endereços de um usuário passando o id
+GET http://localhost:3333/users/1/addresses HTTP/1.1
+
+###
+# armazena um endereço para um usuário passando o id e as informações de street, zipcode e number
+POST http://localhost:3333/users/1/addresses HTTP/1.1
+content-type: application/json
+
+{
+	"street": "Rua Pedro Alvares",
+	"zipcode": 99999999,
+	"number": 111
+}
+
+###
+# User Techs Routes
+# retorna a lista de tecnologias de um usuário passando o id
+GET http://localhost:3333/users/1/techs HTTP/1.1
+
+###
+# armazena uma tecnologia para um usuário passando o id e o name
+POST http://localhost:3333/users/1/techs HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Node.js"
+}
+
+###
+# remove a tecnologia da lista de tecnologias do usuário passando o id e nome da tech
+DELETE http://localhost:3333/users/1/techs HTTP/1.1
+content-type: 
+
+{
+    "name": "JavaScript"
+}
+
+###
+# Report Route
+# retorna uma lista de usuários que possuem email com final @rocketseat.com.br e que moram na rua  "Rua Guilherme Gembala" e suas tecnologias que iniciam com "React"
+GET http://localhost:3333/report HTTP/1.1

@@ -26,7 +26,17 @@ module.exports = {
   },
 
   async list(req, res) {
-    return res.send("ok");
+    const { user_id } = req.params;
+
+    const user = await User.findByPk(user_id, {
+      include: {
+        association: "techs",
+        attributes: ["name"],
+        through: { attributes: [] },
+      },
+    });
+
+    return res.json(user.techs);
   },
 
   async delete(req, res) {

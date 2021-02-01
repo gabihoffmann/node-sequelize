@@ -20,6 +20,7 @@ module.exports = {
         //desse usuários buscas as tecnologias que começam com React
         {
           association: "techs",
+          required: false,
           where: {
             name: {
               [Op.like]: "React%",

@@ -11,11 +11,24 @@ module.exports = {
           [Op.like]: "%@rocketseat.com.br",
         },
       },
+      include: [
+        //desses usuários buscar os que moram na rua "Rua Guilherme Gembala"
+        {
+          association: "addresses",
+          where: { street: "Rua Guilherme Gembala" },
+        },
+        //desse usuários buscas os que tem tecnologia que começa com React
+        {
+          association: "techs",
+          where: {
+            name: {
+              [Op.like]: "React%",
+            },
+          },
+        },
+      ],
     });
 
     return res.json(users);
-
-    //desses usuários buscar os que moram na rua "Rua Guilherme Gembala"
-    //desse usuários buscas os que tem tecnologia que começa com React
   },
 };
